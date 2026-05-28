@@ -58,7 +58,7 @@ const DETAIL_ITEMS = [
   {
     Icon: Book,
     title: "Standards-aligned",
-    body: "Maps lessons and assessments to your state standards, NGSS, and Common Core. ClassSense knows the standard, not just the topic.",
+    body: "Maps lessons and assessments to CBSE, ICSE, and state board syllabi under NEP 2020. ClassSense knows the standard, not just the topic.",
   },
   {
     Icon: GraduationCap,
@@ -67,7 +67,7 @@ const DETAIL_ITEMS = [
   },
   {
     Icon: Shield,
-    title: "FERPA by design",
+    title: "DPDP by design",
     body: "Student data is siloed per class and per teacher. Privacy is built into the architecture, not bolted on by policy.",
   },
 ];
@@ -89,7 +89,7 @@ const TIERS = [
   },
   {
     name: "Pro",
-    price: "$12",
+    price: "₹399",
     per: "/ teacher / mo",
     desc: "For teachers who want the full weekly workflow.",
     features: [
@@ -111,9 +111,9 @@ const TIERS = [
     desc: "For schools and districts.",
     features: [
       "District deployment & admin console",
-      "SSO + roster sync (Clever, ClassLink)",
-      "SIS & LMS integration (PowerSchool, Canvas, Google Classroom)",
-      "FERPA agreements & data residency",
+      "SSO + roster sync (Google Workspace, Teachmint)",
+      "SIS & LMS integration (Google Classroom, Teachmint, Entab)",
+      "DPDP agreements & data residency",
       "Dedicated success manager",
     ],
     cta: "Talk to sales",
@@ -298,7 +298,7 @@ export default function Home() {
                       className="ml-0.5 inline-block rounded-[3px] px-1.5 align-super text-[9px] font-semibold text-white"
                       style={{ background: "var(--accent-600)", fontFamily: "var(--font-sans)" }}
                     >
-                      NGSS
+                      CBSE
                     </sup>
                   </div>
                 </div>
@@ -515,7 +515,7 @@ export default function Home() {
             not seats.
           </h2>
           <p className="mt-5 text-[17px] leading-[1.6] text-fg2">
-            All plans include unlimited lessons, standards alignment, and FERPA-aligned controls.
+            All plans include unlimited lessons, standards alignment, and DPDP-aligned controls.
           </p>
         </div>
 
@@ -607,7 +607,7 @@ export default function Home() {
             className="mx-auto mt-5 max-w-[520px] text-[17px] leading-[1.55]"
             style={{ color: "rgba(236,238,241,0.7)" }}
           >
-            Free for your first class. No card required. Connects to Google Classroom, Canvas,
+            Free for your first class. No card required. Connects to Google Classroom, Teachmint,
             and your SIS.
           </p>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
@@ -648,7 +648,7 @@ export default function Home() {
             { h: "Product", items: ["Admin", "Planning", "Personalization", "Integrations", "Changelog"] },
             { h: "Solutions", items: ["Elementary", "Middle school", "High school", "Special education", "Districts"] },
             { h: "Company", items: ["About", "Customers", "Careers", "Press", "Contact"] },
-            { h: "Resources", items: ["Documentation", "Security", "Trust center", "FERPA", "API"] },
+            { h: "Resources", items: ["Documentation", "Security", "Trust center", "DPDP Act", "API"] },
           ].map((col) => (
             <div key={col.h}>
               <div
