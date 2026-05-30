@@ -1,34 +1,22 @@
 import { Logo } from "@/components/Logo";
 import { StudentInsight } from "@/components/StudentInsight";
+import { WaitlistForm } from "@/components/WaitlistForm";
 import {
-  ArrowRight,
   Book,
   Check,
-  ChevronDown,
-  ChevronRight,
   FileText,
   GraduationCap,
-  Play,
-  Settings,
   Shield,
   Sparkles,
 } from "@/components/Icons";
 
-const NAV = [
-  { label: "Product", caret: true },
-  { label: "Solutions", caret: true },
-  { label: "Pricing", caret: false },
-  { label: "Security", caret: false },
-  { label: "Resources", caret: true },
-];
-
 const TRUSTED = [
-  { name: "Delhi Public School", sub: "R.K. Puram" },
-  { name: "Kendriya Vidyalaya", sub: "Pune" },
-  { name: "DAV Public School", sub: "Chandigarh" },
-  { name: "Ryan International", sub: "Mumbai" },
-  { name: "Greenwood High", sub: "Bengaluru" },
-  { name: "St. Xavier's", sub: "Est. 1860" },
+  { name: "Gyanodaya Vidyalaya", sub: "Indore" },
+  { name: "St. Aloysius High", sub: "Mangalore" },
+  { name: "Sunrise Public School", sub: "Jaipur" },
+  { name: "Vidya Niketan", sub: "Nashik" },
+  { name: "Greenfield Academy", sub: "Lucknow" },
+  { name: "Sharada Vidya Mandir", sub: "Hubli" },
 ];
 
 const FEATURES = [
@@ -84,7 +72,7 @@ const TIERS = [
       "Core standards library",
       "Community support",
     ],
-    cta: "Start free",
+    cta: "Join the waitlist",
     variant: "secondary" as const,
   },
   {
@@ -99,7 +87,7 @@ const TIERS = [
       "Student insight & misconception flags",
       "Priority support",
     ],
-    cta: "Start 14-day trial",
+    cta: "Join the waitlist",
     variant: "primary" as const,
     featured: true,
     pill: "Most popular",
@@ -116,7 +104,7 @@ const TIERS = [
       "DPDP agreements & data residency",
       "Dedicated success manager",
     ],
-    cta: "Talk to sales",
+    cta: "Join the waitlist",
     variant: "dark" as const,
   },
 ];
@@ -129,26 +117,21 @@ export default function Home() {
         <div className="mx-auto flex h-16 max-w-[1240px] items-center justify-between px-6 md:px-10">
           <Logo size={32} />
           <div className="hidden items-center gap-6 md:flex">
-            {NAV.map((l) => (
-              <span
-                key={l.label}
-                className="flex cursor-pointer items-center gap-1 text-[14px] text-fg2 transition-colors hover:text-fg1"
-              >
-                {l.label}
-                {l.caret && <ChevronDown size={13} />}
-              </span>
-            ))}
+            <a
+              href="#pricing"
+              className="flex cursor-pointer items-center gap-1 text-[14px] text-fg2 transition-colors hover:text-fg1"
+            >
+              Pricing
+            </a>
           </div>
           <div className="flex items-center gap-2">
-            <button className="focus-ring rounded-[6px] px-3 py-2 text-[14px] text-fg2 transition-colors hover:bg-slate-50 hover:text-fg1">
-              Sign in
-            </button>
-            <button
+            <a
+              href="#waitlist"
               className="focus-ring rounded-[6px] px-4 py-2 text-[14px] font-medium text-bone transition-colors"
               style={{ background: "var(--slate-700)" }}
             >
-              Request a demo
-            </button>
+              Join the waitlist
+            </a>
           </div>
         </div>
       </nav>
@@ -176,23 +159,8 @@ export default function Home() {
               ClassSense reads the class, drafts the busywork, and flags who&apos;s falling behind —
               leaving the teaching, where it belongs, with you.
             </p>
-            <div className="mt-9 flex flex-wrap items-center gap-3">
-              <button
-                className="focus-ring inline-flex items-center gap-2 rounded-[8px] px-6 py-3.5 text-[15px] font-medium text-white transition-colors"
-                style={{ background: "var(--accent-600)" }}
-              >
-                Request a demo
-                <ArrowRight size={16} />
-              </button>
-              <button
-                className="focus-ring inline-flex items-center gap-2 rounded-[8px] border bg-white px-5 py-3.5 text-[15px] font-medium text-fg1 transition-colors hover:bg-slate-50"
-                style={{ borderColor: "var(--border-strong)" }}
-              >
-                <Play size={12} />
-                Watch the product tour
-                <ChevronRight size={14} />
-              </button>
-              <span className="text-[13px] text-fg3">Free for your first class · No card required</span>
+            <div id="waitlist" className="mt-9 scroll-mt-24">
+              <WaitlistForm source="ClassSense" />
             </div>
           </div>
 
@@ -206,7 +174,7 @@ export default function Home() {
       <section className="border-y bg-bone-50" style={{ borderColor: "var(--border)" }}>
         <div className="mx-auto max-w-[1240px] px-6 py-10 md:px-10">
           <div className="text-center text-[12px] tracking-[-0.005em] text-fg3">
-            Trusted by teachers at schools reaching <span className="text-fg1 font-medium">40,000 students</span>
+            Trusted by teachers and independent schools across India
           </div>
           <div className="mt-7 flex flex-wrap items-center justify-center gap-x-10 gap-y-5">
             {TRUSTED.map((f) => (
@@ -501,7 +469,8 @@ export default function Home() {
 
       {/* ═══ PRICING ═══════════════════════════════════════════ */}
       <section
-        className="mx-auto max-w-[1240px] border-t px-6 py-24 md:px-10 md:py-32"
+        id="pricing"
+        className="mx-auto max-w-[1240px] scroll-mt-20 border-t px-6 py-24 md:px-10 md:py-32"
         style={{ borderColor: "var(--border)" }}
       >
         <div className="mb-14 max-w-[760px]">
@@ -568,8 +537,9 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                <button
-                  className={`focus-ring mt-auto rounded-[8px] px-5 py-3 text-[14px] font-medium transition-colors`}
+                <a
+                  href="#waitlist"
+                  className={`focus-ring mt-auto block rounded-[8px] px-5 py-3 text-center text-[14px] font-medium transition-colors`}
                   style={
                     t.variant === "primary"
                       ? { background: "var(--accent-600)", color: "white" }
@@ -583,7 +553,7 @@ export default function Home() {
                   }
                 >
                   {t.cta}
-                </button>
+                </a>
               </div>
             );
           })}
@@ -607,26 +577,11 @@ export default function Home() {
             className="mx-auto mt-5 max-w-[520px] text-[17px] leading-[1.55]"
             style={{ color: "rgba(236,238,241,0.7)" }}
           >
-            Free for your first class. No card required. Connects to Google Classroom, Teachmint,
-            and your SIS.
+            Join the waitlist and be first to know when ClassSense opens up. Built to connect with
+            Google Classroom, Teachmint, and your SIS.
           </p>
-          <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
-            <button
-              className="focus-ring inline-flex items-center gap-2 rounded-[8px] px-7 py-4 text-[15px] font-medium text-white"
-              style={{ background: "var(--accent-600)" }}
-            >
-              Request a demo
-              <ArrowRight size={16} />
-            </button>
-            <button
-              className="focus-ring inline-flex items-center gap-2 rounded-[8px] border px-6 py-4 text-[15px] font-medium"
-              style={{
-                borderColor: "rgba(236,238,241,0.25)",
-                color: "var(--fg-on-dark)",
-              }}
-            >
-              Start free
-            </button>
+          <div className="mt-9 flex justify-center">
+            <WaitlistForm source="ClassSense" variant="dark" />
           </div>
         </div>
       </section>
@@ -636,7 +591,7 @@ export default function Home() {
         className="border-t"
         style={{ background: "var(--slate-950)", color: "var(--fg-on-dark)", borderColor: "rgba(255,255,255,0.08)" }}
       >
-        <div className="mx-auto grid max-w-[1240px] gap-10 px-6 py-14 md:grid-cols-[1.6fr_1fr_1fr_1fr_1fr] md:px-10">
+        <div className="mx-auto flex max-w-[1240px] flex-col items-start justify-between gap-6 px-6 py-14 md:flex-row md:items-center md:px-10">
           <div>
             <Logo size={28} inverse />
             <p className="mt-4 max-w-[300px] text-[13px] leading-[1.6]" style={{ color: "rgba(236,238,241,0.55)" }}>
@@ -644,47 +599,20 @@ export default function Home() {
               every student.
             </p>
           </div>
-          {[
-            { h: "Product", items: ["Admin", "Planning", "Personalization", "Integrations", "Changelog"] },
-            { h: "Solutions", items: ["Elementary", "Middle school", "High school", "Special education", "Districts"] },
-            { h: "Company", items: ["About", "Customers", "Careers", "Press", "Contact"] },
-            { h: "Resources", items: ["Documentation", "Security", "Trust center", "DPDP Act", "API"] },
-          ].map((col) => (
-            <div key={col.h}>
-              <div
-                className="mb-3 text-[11px] font-semibold uppercase tracking-[0.12em]"
-                style={{ color: "rgba(236,238,241,0.5)" }}
-              >
-                {col.h}
-              </div>
-              <ul className="space-y-2 text-[13px]">
-                {col.items.map((i) => (
-                  <li key={i}>
-                    <a
-                      href="#"
-                      className="transition-colors"
-                      style={{ color: "rgba(236,238,241,0.78)" }}
-                    >
-                      {i}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <a
+            href="#waitlist"
+            className="focus-ring inline-flex shrink-0 items-center justify-center rounded-[8px] px-6 py-3 text-[14px] font-medium text-white transition-colors"
+            style={{ background: "var(--accent-500)" }}
+          >
+            Join the waitlist
+          </a>
         </div>
         <div
           className="border-t"
           style={{ borderColor: "rgba(255,255,255,0.08)" }}
         >
-          <div className="mx-auto flex max-w-[1240px] flex-col items-start justify-between gap-3 px-6 py-5 text-[12px] md:flex-row md:items-center md:px-10" style={{ color: "rgba(236,238,241,0.5)" }}>
+          <div className="mx-auto flex max-w-[1240px] px-6 py-5 text-[12px] md:px-10" style={{ color: "rgba(236,238,241,0.5)" }}>
             <span>© {new Date().getFullYear()} ClassSense, Inc. · ClassSense supports teachers and does not replace professional educational judgment.</span>
-            <div className="flex gap-5">
-              <a href="#">Terms</a>
-              <a href="#">Privacy</a>
-              <a href="#">DPA</a>
-              <a href="#">Cookies</a>
-            </div>
           </div>
         </div>
       </footer>
